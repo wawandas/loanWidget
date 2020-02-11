@@ -91,15 +91,16 @@ export default {
         this.getLoan();
       }
     },
-    getLoan() {
+    async getLoan() {
       this.isLoading = true;
-      axios
-        .post("/loan", { amount: this.amount, duration: this.duration })
-        .then(response => {
-          const { data } = response;
-          this.isLoading = false;
-          this.monthlyInstallment = data.monthlyInstallment;
-        });
+
+      const { data } = await axios.post("/loan", {
+        amount: this.amount,
+        duration: this.duration
+      });
+
+      this.isLoading = false;
+      this.monthlyInstallment = data.monthlyInstallment;
     }
   }
 };

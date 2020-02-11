@@ -3,6 +3,9 @@ import Vuetify from "vuetify";
 import { mount, createLocalVue } from "@vue/test-utils";
 import LoanWidget from "@/components/LoanWidget.vue";
 
+import axios from "axios";
+import MockAdapter from "axios-mock-adapter";
+
 Vue.use(Vuetify);
 
 describe("LoanWidget.vue", () => {
@@ -63,5 +66,25 @@ describe("LoanWidget.vue", () => {
     await wrapper.vm.$nextTick();
 
     expect(wrapper.text()).toContain("Should be between 1 and 5");
+  });
+
+  it("fetches async when a button is clicked", async () => {
+    const mock = new MockAdapter(axios);
+    mock.onPost("/loan").reply(200, {
+      amount: "10000.00",
+      duration: "5",
+      monthlyInstallment: "5390.61"
+    });
+
+    wrapper.find('input[name="amount"]').setValue("10000");
+    wrapper.find('input[name="duration"]').setValue("5");
+    wrapper.find("button").trigger("click");
+
+    //this part has to be improved :'((
+    await wrapper.vm.$nextTick();
+    await wrapper.vm.$nextTick();
+    await wrapper.vm.$nextTick();
+
+    expect(wrapper.vm.monthlyInstallment).toBe("5390.61");
   });
 });

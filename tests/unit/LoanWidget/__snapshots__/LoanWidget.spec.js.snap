@@ -1,0 +1,52 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`LoanWidget.vue matches snapshot 1`] = `
+<div class="container fill-height container--fluid">
+  <div class="row align-center justify-center">
+    <div class="col col-8">
+      <div class="elevation-4 v-card v-sheet v-sheet--tile theme--light">
+        <div class="v-card__text">
+          <form novalidate="novalidate" class="v-form">
+            <div class="container">
+              <div class="row">
+                <div class="col-md-5 col-12">
+                  <div class="v-input theme--light v-text-field">
+                    <div class="v-input__control">
+                      <div class="v-input__slot">
+                        <div class="v-text-field__slot"><label for="input-4" class="v-label theme--light" style="right: 0px; position: absolute;">Amount</label><input name="amount" required="required" id="input-4" type="text"></div>
+                      </div>
+                      <div class="v-text-field__details">
+                        <div class="v-messages theme--light">
+                          <div class="v-messages__wrapper"></div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-5 col-12">
+                  <div class="v-input theme--light v-text-field">
+                    <div class="v-input__control">
+                      <div class="v-input__slot">
+                        <div class="v-text-field__slot"><label for="input-7" class="v-label theme--light" style="right: 0px; position: absolute;">Duration</label><input name="duration" required="required" id="input-7" type="text"></div>
+                      </div>
+                      <div class="v-text-field__details">
+                        <div class="v-messages theme--light">
+                          <div class="v-messages__wrapper"></div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="align-content-center col-md-2 col-12"><button type="button" class="mt-4 v-btn v-btn--block v-btn--contained theme--light v-size--default primary"><span class="v-btn__content">
+                    Ok
+                  </span></button></div>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+      <!---->
+    </div>
+  </div>
+</div>
+`;

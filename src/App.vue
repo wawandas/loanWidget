@@ -4,7 +4,7 @@
       <v-toolbar-title>Application</v-toolbar-title>
     </v-app-bar>
 
-    <v-content><router-view></router-view></v-content>
+    <v-content><LoanWidget /></v-content>
 
     <v-footer color="cyan" app>
       <span class="white--text">&copy; 2020</span>
@@ -15,6 +15,7 @@
 <script>
 import axios from "axios";
 import MockAdapter from "axios-mock-adapter";
+import LoanWidget from "./components/LoanWidget";
 
 const mock = new MockAdapter(axios, { delayResponse: 1000 });
 
@@ -25,6 +26,9 @@ mock.onPost("/loan").reply(200, {
 });
 
 export default {
-  name: "App"
+  name: "App",
+  components: {
+    LoanWidget: LoanWidget
+  }
 };
 </script>

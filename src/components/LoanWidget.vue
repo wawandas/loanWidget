@@ -84,16 +84,6 @@ export default {
     monthlyInstallment: ""
   }),
 
-  beforeRouteLeave(to, from, next) {
-    if (from.path === "/result") {
-      this.amount = "";
-      this.duration = "";
-      this.monthlyInstallment = "";
-      this.$refs.form.reset();
-    }
-    next();
-  },
-
   methods: {
     submit() {
       const isFormValid = this.$refs.form.validate();
@@ -109,8 +99,6 @@ export default {
           const { data } = response;
           this.isLoading = false;
           this.monthlyInstallment = data.monthlyInstallment;
-
-          this.$router.push("/result").catch(() => {});
         });
     }
   }
